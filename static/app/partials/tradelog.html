@@ -1,0 +1,8 @@
+<div class="tradeSidebar span3">
+	<div class="trade" ng-repeat="trade in trades">
+		{{trade.legs[0].symbol}}
+			<div class="side">Bullish</div>
+			<div class="pop">68%</div>
+	</div>
+<button class="btn btn-primary" ng-click="openAddTradeDialog()">Add Trade</button>
+</div>

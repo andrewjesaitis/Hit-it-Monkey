@@ -1,0 +1,35 @@
+<div id="tradeModal" ng-controller="TradeCtrl">
+	<div class="modal-header">
+		<h1>Add Trade</h1>
+	</div>
+	<form class="form-inline">
+			<label for="inputPOP">Probability of Profit</label>
+			<input id="inputPOP" ng-model="trade.pop" />
+		<accordion>
+			<accordion-group class="leg form-inline" heading="Leg {{$index + 1}}" ng-repeat="leg in trade.legs">
+				<div>
+					<label for="inputOpenedAt">Opened On</label>
+					<input id="inputOpenedAt" ui-date ng-model="leg.openedAt" />
+					<label for="inputClosedAt">Closed On</label>
+					<input id="inputClosedAt" ui-date ng-model="leg.closedAt" />
+				</div>
+				<div>
+					<label for="inputOpenAmount">Open Amount</label>
+					<input id="inputOpenAmount" ng-model="leg.openAmount" />
+					<label for="inputCloseAmount">Close Amount</label>
+					<input id="inputCloseAmount" ng-model="leg.closeAmount" />
+				</div>
+				<div>
+					<input id="inputQty" placeholder="Quantity" ng-model="leg.qty" />
+					<select ng-model="leg.type" ng-options="security for security in securities"></select>
+					<input id="inputSymbol" type="text" placeholder="Symbol" ng-model="leg.symbol" />
+				</div>
+			</accordion-group>
+		</accordion>
+
+	<div class="modal-footer">
+		<button class="btn" ng-click="addLeg(trade)">Add Leg</button> <button class="btn btn-primary" ng-click="update(trade)">Save</button>
+	</div>
+	</form>
+	<pre>form = {{trade | json}}</pre>
+</div>

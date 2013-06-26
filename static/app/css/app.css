@@ -1,0 +1,79 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.tradeSidebar .trade {
+  position: relative;
+  font: 2em/2.3em sans-serif;
+  border-bottom: 1px solid grey;
+  border-right: 1px solid grey;
+  padding-left: 5px;
+}
+
+.tradeSidebar .trade:first-child {
+  border-top: 1px solid grey;
+}
+
+.tradeSidebar button {
+  margin-top: 10px;
+}
+
+.side {
+  padding: 5px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font: .5em/.5em sans-serif;
+  border-left: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.pop {
+  padding: 5px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  font: .5em/.5em sans-serif;
+  border-left: 1px solid grey;
+  border-top: 1px solid grey;
+}
+
+#tradeModal {
+  padding: 10px;
+}
+
+#tradeModal input, #tradeModal select {
+  width: 100px;
+  margin: 5px 10px 5px 0px;
+}
+
+.leg label {
+  width: 95px;
+}
