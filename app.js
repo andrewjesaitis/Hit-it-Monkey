@@ -1,19 +1,23 @@
 var express = require('express'),
-  routes = require('./routes'),
-  api = require('./routes/api'),
   http = require('http'),
-  path = require('path');
+  path = require('path'),
+  mongoose = require('mongoose'),
+  config = require('./config');
 
-var app = module.exports = express();
+// Bootstrap db connection
+mongoose.connect(config.local_auth);
+require('./models/trade');
+var controllers = require('./controllers'),
+	trades = require('./controllers/trades');
 
 /**
  * App Configuration
  */
 
-/**** all environments ****/
+var app = module.exports = express();
 app.set('port', process.env.PORT || 3000);
 
-//views are views that are rendered server-side
+//views are pages that are rendered server-side
 app.set('views', __dirname + '/views');
 // remap html extension to the ejs engine
 app.engine('html', require('ejs').renderFile);
@@ -29,9 +33,10 @@ app.use(express.errorHandler());
 /**
  * Routes
  */
-app.get('/', routes.index);
-app.get('/api/trades', api.trades);
-app.get('/api/trade/:id', api.trade);
+app.get('/', controllers.index);
+app.get('/api/trades', trades.getAll);
+app.get('/api/trades/:id', trades.getOne);
+app.post('/api/trades', trades.create)
 // app.get('*', routes.index);
 
 

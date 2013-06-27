@@ -1,4 +1,8 @@
 lib-cov
+node_modules
+static/app/components
+config.js
+.DS_Store
 *.seed
 *.log
 *.csv

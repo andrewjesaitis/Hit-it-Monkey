@@ -1,5 +1,5 @@
 /*
- * Router for server side "rendered" home.
+ * Controller for server side "rendered" home.
  * All angular templates are served as static files.
  *
  */

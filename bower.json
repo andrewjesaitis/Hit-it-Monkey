@@ -1,0 +1,12 @@
+{
+	"dependencies": {
+		"angular": "latest",
+		"angular-bootstrap": "latest",
+		"angular-resource": "latest",
+	    "angular-ui-date": "latest",
+	    "bower-bootstrap-css": "latest",
+	    "jquery": "latest",
+	    "jquery-ui": "latest",
+	    "underscore": "latest"
+	}
+}
