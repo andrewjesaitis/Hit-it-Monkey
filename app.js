@@ -2,6 +2,7 @@ var express = require('express'),
   http = require('http'),
   path = require('path'),
   mongoose = require('mongoose'),
+  _ = require('underscore'),
   config = require('./config');
 
 // Bootstrap db connection
@@ -38,6 +39,15 @@ app.get('/api/trades', trades.getAll);
 app.get('/api/trades/:id', trades.getOne);
 app.post('/api/trades', trades.create)
 // app.get('*', routes.index);
+
+// Test Data!!
+var Trade = mongoose.model('Trade');;
+var trade_fixture = require('./tests/fixture_trades.js').data;
+Trade.find().remove();
+_.each(trade_fixture, function(item){
+	var doc = new Trade(item);
+	doc.save();
+});
 
 
 /**
