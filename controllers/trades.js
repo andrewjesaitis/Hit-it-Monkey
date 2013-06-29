@@ -12,14 +12,7 @@ exports.getAll = function(req, res){
   Trade.list(options, function(err, trades) {
     Trade.count().exec(function (err, count) {
       res.type('application/json');
-      res.json({
-        meta: {
-          count: count,
-          page: page + 1,
-          pages: Math.ceil(count / perPage)
-        },
-        objects: trades
-      });
+      res.json(trades);
     });
   });
 };

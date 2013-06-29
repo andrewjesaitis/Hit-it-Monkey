@@ -49,8 +49,7 @@ describe('Trades', function () {
       .get('/api/trades')
       .end( function (err, res) {
         if (err) return done(err);
-        expect(res.body.objects).toEqual([]);
-        expect(res.body.meta.count).toBe(0);
+        expect(res.body).toEqual([]);
         done();
       });
 
@@ -83,7 +82,6 @@ describe('Trades', function () {
               if (err) return done(err);
               expect(res.header['content-type']).toBe('application/json');
               expect(res.statusCode).toBe(200);
-              console.log(res.body)
               expect(res.body.legs[0].symbol).toBe('FB');
               done();
             });
@@ -99,9 +97,7 @@ describe('Trades', function () {
       .get('/api/trades/')
       .end( function (err, res) {
         if (err) return done(err);
-        console.log(res.body.objects)
-        expect(res.body.objects[0].legs[0].symbol).toBe('FB');
-        expect(res.body.meta.count).toBe(1);
+        expect(res.body[0].legs[0].symbol).toBe('FB');
         done();
       });
     });
