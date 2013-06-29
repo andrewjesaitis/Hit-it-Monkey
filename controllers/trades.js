@@ -11,11 +11,14 @@ exports.getAll = function(req, res){
 
   Trade.list(options, function(err, trades) {
     Trade.count().exec(function (err, count) {
+      res.type('application/json');
       res.json({
-        title: 'Trades',
-        trades: trades,
-        page: page + 1,
-        pages: Math.ceil(count / perPage)
+        meta: {
+          count: count,
+          page: page + 1,
+          pages: Math.ceil(count / perPage)
+        },
+        objects: trades
       });
     });
   });
@@ -23,17 +26,16 @@ exports.getAll = function(req, res){
 
 exports.getOne = function(req, res){
 	Trade.load(req.params.id, function(err, trade){
-		res.json({
-	    trade: trade
-	  });
+    res.type('application/json');
+		res.json(trade);
 	});
 };
 
 exports.create = function (req, res) {
   var trade = new Trade(req.body);
   trade.save(function(err, trade){
-  	res.json({
-      trade: trade
-  	});
+    res.type('application/json');
+  	res.location('/api/trades/' + trade.id + '/');
+    res.send(201);
   });
 };
