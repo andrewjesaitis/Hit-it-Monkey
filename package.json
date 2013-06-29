@@ -5,6 +5,8 @@
   "dependencies": {
     "express": "latest",
     "ejs": "latest",
-    "mongoose": "latest"
+    "mongoose": "latest",
+    "node-jasmine": "latest",
+    "supertest": "lates"
   }
 }
