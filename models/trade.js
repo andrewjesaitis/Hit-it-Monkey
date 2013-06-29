@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var TradeSchema = new mongoose.Schema({
- probabilityOfProfit: String,
+ probabilityOfProfit: Number,
  legs: [LegSchema]
 });
 
