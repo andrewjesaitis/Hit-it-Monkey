@@ -3,8 +3,9 @@
 /* Controllers */
 
 angular.module('tradeLog.controllers', []).
-  controller('TradeLogCtrl', ['$scope', '$dialog', 'Trade', function($scope, $dialog, Trade) {
-    $scope.trades = Trade.query();
+  controller('TradeLogCtrl', ['$scope', '$dialog', 'TradeCollection', function($scope, $dialog, TradeCollection) {
+    $scope.TradeCollection = TradeCollection;
+    $scope.TradeCollection.query();
     $scope.orderBy = "openedOn";
 
     $scope.openAddTradeDialog = function(){
@@ -15,16 +16,10 @@ angular.module('tradeLog.controllers', []).
             templateUrl:  'partials/addtrade.html', // OR: templateUrl: 'path/to/view.html',
             controller: 'TradeCtrl'
         });
-
-        d.open().then(function(result){
-          if(result)
-          {
-            alert('dialog closed with result: ' + result);
-          }
-        });
+        d.open();
     };
   }])
-  .controller('TradeCtrl', ['$scope', function($scope) {
+  .controller('TradeCtrl', ['$scope', 'dialog', 'TradeCollection', function($scope, dialog, TradeCollection) {
     $scope.securities = ['stock', 'future', 'call', 'put']
 
     $scope.trade = {
@@ -44,6 +39,11 @@ angular.module('tradeLog.controllers', []).
                 "openedAt": null,
                 "closedAt": null
             });
+    };
+
+    $scope.update = function(trade) {
+        TradeCollection.save(trade);
+        dialog.close();
     };
 
   }]);
