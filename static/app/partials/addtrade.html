@@ -1,10 +1,10 @@
-<div id="tradeModal" ng-controller="TradeCtrl">
+<div id="tradeModal">
 	<div class="modal-header">
 		<h1>Add Trade</h1>
 	</div>
 	<form class="form-inline">
 			<label for="inputPOP">Probability of Profit</label>
-			<input id="inputPOP" ng-model="trade.pop" />
+			<input id="inputPOP" ng-model="trade.probabilityOfProfit" />
 		<accordion>
 			<accordion-group class="leg form-inline" heading="Leg {{$index + 1}}" ng-repeat="leg in trade.legs">
 				<div>
@@ -31,5 +31,4 @@
 		<button class="btn" ng-click="addLeg(trade)">Add Leg</button> <button class="btn btn-primary" ng-click="update(trade)">Save</button>
 	</div>
 	</form>
-	<pre>form = {{trade | json}}</pre>
 </div>

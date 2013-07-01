@@ -13,7 +13,7 @@ angular.module('tradeLog.controllers', []).
             backdrop: true,
             keyboard: true,
             backdropClick: true,
-            templateUrl:  'partials/addtrade.html', // OR: templateUrl: 'path/to/view.html',
+            templateUrl:  'partials/addtrade.html',
             controller: 'TradeCtrl'
         });
         d.open();
@@ -24,7 +24,7 @@ angular.module('tradeLog.controllers', []).
 
     $scope.trade = {
         "id": null,
-        "pop": null,
+        "probabilityOfProfit": null,
         "legs": []
     };
 

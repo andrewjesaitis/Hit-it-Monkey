@@ -40,8 +40,15 @@
 .tradeSidebar .trade:first-child {
   border-top: 1px solid grey;
 }
+.trade-container {
+  max-height: 100%;
+  overflow-y: scroll;
+
+}
 
 .tradeSidebar button {
+  position: relative;
+  bottom: 0px;
   margin-top: 10px;
 }
 
