@@ -3,10 +3,10 @@
 /* jasmine specs for filters go here */
 
 describe('filter', function() {
-  beforeEach(module('myApp.filters'));
+  beforeEach(module('tradeLog.filters'));
 
 
-  describe('interpolate', function() {
+  xdescribe('interpolate', function() {
     beforeEach(module(function($provide) {
       $provide.value('version', 'TEST_VER');
     }));

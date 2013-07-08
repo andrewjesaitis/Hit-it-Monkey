@@ -2,8 +2,8 @@
 
 /* jasmine specs for services go here */
 
-describe('service', function() {
-  beforeEach(module('myApp.services'));
+xdescribe('service', function() {
+  beforeEach(module('tradeLog.services'));
 
 
   describe('version', function() {

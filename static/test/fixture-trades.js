@@ -1,7 +1,8 @@
-[
+// declare a global for test usage, maybe there's a better way
+tradeFixture = [
   {
     "id": 1,
-    "pop": 0.5,
+    "probabilityOfProfit": 0.5,
     "legs": [
     	{
 	    	"type": "stock",
@@ -16,7 +17,7 @@
 	},
 	{
     "id": 2,
-    "pop": 0.70,
+    "probabilityOfProfit": 0.70,
     "legs": [
     	{
 	    	"type": "call",
@@ -42,7 +43,7 @@
 	},
 	{
     "id": 3,
-    "pop": 0.66,
+    "probabilityOfProfit": 0.66,
     "legs": [
     	{
 	    	"type": "put",

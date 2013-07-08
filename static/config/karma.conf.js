@@ -3,11 +3,12 @@ basePath = '../';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'app/lib/angular/angular.js',
-  'app/lib/angular/angular-*.js',
+  'app/components/angular/angular.js',
+  'app/components/angular-bootstrap/ui-bootstrap-tpls.js',
   'test/lib/angular/angular-mocks.js',
   'app/js/**/*.js',
-  'test/unit/**/*.js'
+  'test/unit/**/*.js',
+  'test/fixture-*.js'
 ];
 
 autoWatch = true;
